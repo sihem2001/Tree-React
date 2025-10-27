@@ -43,18 +43,20 @@ const Theme = () => {
         <foreignObject
           width="300"
           height="200"
-          x="-150"
-          y="-100"
+          x="-300"
+          y="-200"
           style={{ overflow: "visible" }}
         >
           <div
             style={{
               width: "300px",
+              height:"300px",
               transform: "scale(0.9)",
               transformOrigin: "center",
+              alignSelf: "center",
             }}
             onClick={() => {
-              if (hasChildren) toggleNode(); // 👈 only toggle if there are children
+              if (hasChildren) toggleNode();
             }}
           >
             <CustomNode treeData={nodeForCustomComponent} config={config} />
@@ -103,9 +105,9 @@ const Theme = () => {
           data={d3TreeData}
           translate={translate}
           dimensions={dimensions}
-          orientation="horizontal"
+          orientation="vertical"
           separation={{ siblings: 2, nonSiblings: 2.5 }}
-          nodeSize={{ x: 100, y: 250 }}
+          nodeSize={{ x: 300, y: 300 }}
           renderCustomNodeElement={renderCustomNode}
           shouldCollapseNeighborNodes={false}
           collapsible={true}
@@ -114,7 +116,7 @@ const Theme = () => {
           scaleExtent={{ min: 0.3, max: 1 }}
           enableLegacyTransitions={true}
           transitionDuration={700}
-          depthFactor={400}
+          depthFactor={500}
           pathFunc="step"
           styles={{
             links: {
